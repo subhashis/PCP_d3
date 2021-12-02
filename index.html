@@ -19,18 +19,28 @@ var continues_colors = d3.scale.linear()
 
 var categorical_classColor = d3.scale.category10();
 
+var custom_colors = d3.scale.linear()
+  .domain([0, 1])
+  .range(["#3399ff", "#ff8000"]);
+
 var color = function(d) { return categorical_classColor(d['y_true']); };
 
 var parcoords = d3.parcoords()("#example")
   .color(color)
-  .alpha(0.4);
+  .alpha(0.6);
+
 
 // load csv file and create the chart
-d3.csv('test_data.csv', function(data) {
+// filenames: 
+//  new_data/clear_layer/for_vis_all_combined.csv
+//  new_data/combined/for_vis_comb_DFT_combined.csv
+
+d3.csv('new_data/combined/for_vis_comb_DFT_combined.csv', function(data) {
   parcoords
     .data(data)
     .render()
-    .brushMode("1D-axes");  // enable brushing
+    .brushMode("1D-axes")
+    .reorderable();  // enable brushing
 
   // create data table, row hover highlighting
   var grid = d3.divgrid();
@@ -46,7 +56,7 @@ d3.csv('test_data.csv', function(data) {
   // update data table on brush event
   parcoords.on("brush", function(d) {
     d3.select("#grid")
-      .datum(d.slice(0,10))
+      .datum(d)
       .call(grid)
       .selectAll(".row")
       .on({

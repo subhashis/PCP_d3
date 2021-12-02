@@ -54,12 +54,18 @@ input {
 }
 
 /* data table styles */
-  #grid { height: 300px; overflow-y: scroll;}
-  .row, .header { clear: left; font-size: 11px; line-height: 24px; height: 24px; }
-  .row:nth-child(odd) { background: rgba(0,0,0,0.05); }
+  #grid { height: 500px; overflow-y: scroll;}
+  .row, .header { clear: left; font-size: 13px; line-height: 24px; height: 24px; }
+  .row:nth-child(odd) { background: rgba(0,0,0,0.1); }
   .header { font-weight: bold; }
   .cell { float: left; overflow: hidden; white-space: nowrap; width: 160px; height: 18px; }
-  .col-0 { width: 120px; }
+  .col { width: 120px; }
+  .col-1 { width: 120px; }
+  .col-2 { width: 120px; }
+  .col-3 { width: 120px; }
+  .col-4 { width: 80px; }
+  .col-5 { width: 80px; }
+  .col-6 { width: 80px; }
 
   
 /* parcoords styles */
