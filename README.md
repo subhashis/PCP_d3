@@ -6,3 +6,5 @@
 2. Open in chrome: localhost:8000
 
 NOTE: put proper csv file
+
+NOTE: test check in
